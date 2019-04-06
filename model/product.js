@@ -5,10 +5,10 @@ const p = path.join(path.dirname(process.mainModule.filename), 'data', 'product.
 
 const getProductFromFile = (cb) => {
    fs.readFile(p, (err, fileContent) => {
-      if (!err) {
-         cb(JSON.parse(fileContent))
-      } else {
+      if (err) {
          cb([]);
+      } else {
+         cb(JSON.parse(fileContent))   
       }    
    })
 }
